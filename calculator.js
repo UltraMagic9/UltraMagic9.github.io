@@ -1,16 +1,25 @@
-var number = prompt("First number?");
-var operator = prompt("Which operation? (Add, Subtract, Multiply, Divide)");
-var number2 = prompt("Second number?");
+$(document).ready(function() {
+  $("#calculate").click(function() {
+    var number = prompt("First number?");
+    var operator = prompt("Which operation? (Add, Subtract, Multiply, Divide)");
+    var number2 = prompt("Second number?");
 
-myCalc();
+    myCalc(operator, number, number2);
+  });
 
-function myCalc() {
+});
+
+
+
+
+
+function myCalc(operator, number, number2) {
   var noodle = ("yum");
 
   init();
 
   function init() {
-
+    console.log("init");
     operator = operator.toLowerCase();
 
     switch (operator) {
@@ -35,23 +44,29 @@ function myCalc() {
 
 
 
-   
+
   }
 
   function divide(num1, num2) {
-    window.alert(num1 / num2);
+    out(num1 / num2);
   }
 
   function multiply(num1, num2) {
-    window.alert(num1 * num2);
+    out(num1 * num2);
   }
 
   function add(num1, num2) {
     var answer = parseInt(num1) + parseInt(num2);
-    window.alert("The answer is " + answer);
+    out("The answer is " + answer);
   }
 
   function subtract(num1, num2) {
-    window.alert(num1 - num2);
+    out(num1 - num2);
+  }
+
+  function out(output) {
+    console.log(output);
+    $("#answer")
+      .html(output);
   }
 }
